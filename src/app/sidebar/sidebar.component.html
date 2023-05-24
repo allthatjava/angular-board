@@ -1,0 +1,31 @@
+<div class="container-fluid p-2">
+    <div class="d-flex">
+        <div class="col-2 left-nav sticky">
+            <ul ngbNav #nav="ngbNav" [activeId]="active" orientation="vertical" (navChange)="onNavChange($event)" >
+                <li ngbNavItem="/courses">
+                    <a ngbNavLink routerLink="/courses">Courses</a>
+                    <ng-template ngbNavContent>
+                        <ng-container *ngTemplateOutlet="routerOutlet"></ng-container>
+                    </ng-template>
+                </li>
+                <li ngbNavItem="/contact">
+                    <a ngbNavLink routerLink="/contact">Contact</a>
+                    <ng-template ngbNavContent>
+                        <ng-container *ngTemplateOutlet="routerOutlet"></ng-container>
+                    </ng-template>
+                </li>
+                <li ngbNavItem="/about">
+                    <a ngbNavLink routerLink="/about">About</a>
+                    <ng-template ngbNavContent>
+                        <ng-container *ngTemplateOutlet="routerOutlet"></ng-container>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+        <div [ngbNavOutlet]="nav" class="col-9 offset-1"></div>
+    </div>
+</div>
+
+<ng-template #routerOutlet>
+    <router-outlet></router-outlet>
+</ng-template>

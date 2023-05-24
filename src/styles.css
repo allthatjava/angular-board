@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+a.active{
+    /* border:1px; */
+    background-color:#F2F3F2;
+    border-left: 3px red solid;
+}

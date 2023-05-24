@@ -1,0 +1,29 @@
+<p>contact works!</p>
+<div class="container-fluid">
+    <div class="position-fixed top-0 end-0 p-3">
+        <ngb-alert type="danger" *ngIf="contentExist" (close)="complains.title='';complains.content='';contentExist=false" >You have entered title:[{{complains.title}}] and content:[{{complains.content}}]</ngb-alert>
+    </div>
+    <form >
+        <div class="row mb-5">
+            <label for="reportsName" class="col-sm-2 col-form-label">Report Type:</label>
+            <div class="col-md-4">
+                <select class="form-selector" name="reportName" [(ngModel)]="reportName">
+                    <option selected>Choose One</option>
+                    <option>Complains</option>
+                    <option>Complements</option>
+                    <option>Suggestions</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-5" *ngIf="reportName=='Complains'">
+            <label for="complainTitle">Subject:</label>
+            <input type="text" id="complainTitle" class="form-control" [(ngModel)]="complains.title" [ngModelOptions]="{standalone:true}"/>
+            <label for="complainContent">Description:</label><br/>
+            <textarea id="complainContent" class="form-control" [(ngModel)]="complains.content" [ngModelOptions]="{standalone:true}"></textarea>
+        </div>
+        <div class="col-12 gap-4 d-md-flex mb-5">
+            <button class="btn btn-primary" (click)="onComplainSubmit()" >Submit</button>
+            <button class="btn btn-secondary" (click)="onComplainClear()" >Clear</button>
+        </div>
+    </form>
+</div>
